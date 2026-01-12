@@ -8,4 +8,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	site: 'https://jmuncor.com',
 	integrations: [mdx(), sitemap()],
+	build: {
+		inlineStylesheets: 'auto',
+	},
 });
