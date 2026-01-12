@@ -1,0 +1,5 @@
+name = "jmuncor"
+compatibility_date = "2024-09-23"
+
+# This line tells Cloudflare: "My site is in the dist folder, treat it as a website"
+assets = { directory = "./dist" }
