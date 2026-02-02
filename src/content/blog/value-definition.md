@@ -1,10 +1,8 @@
 ---
-title: The definition of value
-description: "'Value' is a concept often misused and ubiquitous in B2B business environments. It is frequently employed to justify deals that ultimately fail due to the incorrect application of this concept."
+title: What does 'value' mean in a sales conversation?
+description: Value is a concept often misused and ubiquitous in B2B business environments. It is frequently employed to justify deals that ultimately fail due to the incorrect application of this concept.
 pubDate: 2026-02-01
 ---
-# What does 'value' mean in a sales conversation?
-
 We often hear the term 'value' and generally assume we know what it means, yet our definitions are often different. This wouldn't be problematic if we weren't in sales, as whatever we convey to the customer has to resonate with them. For our internal conversations, it's fine to use the concept flexibly, but when it comes to selling, we need to have a consistent definition.
 
 As we engage in initial conversations with prospects in order to understand their pain points and current issues, we may identify many desires that the customer wants as they solve their problem. Depending on the hierarchical level of the people we are talking to, this may sound like increased customer satisfaction, time savings, operational efficiency, and so on. Essentially, anything a prospect wants as an outcome could fit into this list.

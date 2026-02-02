@@ -1,10 +1,8 @@
 ---
-title: The elevator pitch blueprint for sales success
+title: How to build an effective elevator pitch?
 description: Craft a compelling elevator pitch to spark curiosity, defuse objections, and propel sales conversations towards discovery in any situation.
 pubDate: 2026-02-05
 ---
-# How to build an effective elevator pitch?
-
 Throughout our sales careers, the best practice we can uphold is the understanding that great discovery makes a great deal. One of the worst things we can do as salespeople is what my wife calls 'verbal diarrhea'—talking excessively to a prospect about how great our product or service is and how it is better than everything else since pepperoni pizza.
 
 For anyone who prioritizes discovery, new challenges often arise during initial conversations with prospects. The first hurdle to overcome is the huge wall that any well-respected prospect puts up before engaging in an open conversation. This wall often hides behind hundreds of excuses, but the predominant one I have seen is the prospect's desire to push the salesperson to explain what they are selling before revealing any information about their true pain.
