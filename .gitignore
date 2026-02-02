@@ -15,13 +15,18 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.production
+.env.*
 
-# macOS-specific files
+# os files
 .DS_Store
+Thumbs.db
 
-# jetbrains setting folder
+# editor settings
 .idea/
+.vscode/
 
 # obsidian
 .obsidian/
+
+# cloudflare
+.wrangler/
