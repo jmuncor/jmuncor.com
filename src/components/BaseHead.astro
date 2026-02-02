@@ -14,6 +14,7 @@ const { title, description } = Astro.props;
 	(function() {
 		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		if (prefersDark) document.documentElement.classList.add('dark');
+
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
 			document.documentElement.classList.toggle('dark', e.matches);
 		});
@@ -30,7 +31,6 @@ const { title, description } = Astro.props;
 
 <link rel="canonical" href={canonicalURL} />
 <title>{title}</title>
-<meta name="title" content={title} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
@@ -40,7 +40,7 @@ const { title, description } = Astro.props;
 <meta property="og:description" content={description} />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />

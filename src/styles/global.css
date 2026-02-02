@@ -1,18 +1,17 @@
-/* Inter Font Faces */
 @font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('/fonts/inter-latin-800-normal.woff2') format('woff2');
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url('/fonts/inter-latin-800-normal.woff2') format('woff2');
 }
 
 /* Light mode */
