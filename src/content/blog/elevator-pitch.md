@@ -1,5 +1,5 @@
 ---
-title: How to build an effective elevator pitch?
+title: How to build an effective elevator pitch
 description: Craft a compelling elevator pitch to spark curiosity, defuse objections, and propel sales conversations towards discovery in any situation.
 pubDate: 2026-02-05
 ---
