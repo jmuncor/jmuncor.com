@@ -1,6 +1,5 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getNumberedPosts } from '../lib/posts';
@@ -78,7 +77,6 @@ const posts = (await getNumberedPosts()).reverse();
 				))}
 			</ul>
 		</main>
-		<Footer />
 		<script>
 			const items = document.querySelectorAll('.post-item');
 			const headerHeight = 64;
