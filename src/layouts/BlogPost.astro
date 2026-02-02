@@ -26,7 +26,7 @@ const { title, description, pubDate, updatedDate, number } = Astro.props;
 			.post-number {
 				display: block;
 				font-size: 1.5rem;
-				font-weight: 800;
+				font-weight: 700;
 				color: var(--color-text-secondary);
 				margin-bottom: 0.5rem;
 			}
@@ -59,11 +59,15 @@ const { title, description, pubDate, updatedDate, number } = Astro.props;
 			.content :global(ul),
 			.content :global(ol) {
 				margin-bottom: 1.5rem;
-				padding-left: 1.5rem;
+				padding-left: 1.25rem;
 			}
 
 			.content :global(li) {
-				margin-bottom: 0.5rem;
+				margin-bottom: 0.35rem;
+			}
+
+			.content :global(li):last-child {
+				margin-bottom: 0;
 			}
 		</style>
 	</head>

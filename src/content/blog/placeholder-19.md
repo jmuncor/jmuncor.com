@@ -1,7 +1,0 @@
----
-title: 'Good Enough is Perfect'
-description: 'Avoiding perfectionism'
-pubDate: 'Feb 14 2024'
----
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
