@@ -1,17 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const allPosts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
-const latestPosts = posts.slice(0, 3);
+const posts = allPosts.map((post, i) => ({
+	...post,
+	number: String(i + 1).padStart(2, '0')
+})).reverse();
 ---
 
 <!doctype html>
@@ -19,112 +20,53 @@ const latestPosts = posts.slice(0, 3);
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			html {
+				scroll-snap-type: y mandatory;
+			}
+
 			main {
-				width: 100%;
-				max-width: 1024px;
-				margin: 0 auto;
-				padding: 3em 1em;
+				padding: 0 2rem;
 			}
 
-			/* Hero / About Section */
-			.hero {
-				padding: 4rem 0;
-				max-width: 800px;
-			}
-			.hero h1 {
-				font-size: 3.5rem;
-				line-height: 1.1;
-				margin-bottom: 1.5rem;
-			}
-			.hero p {
-				font-size: 1.35rem;
-				color: rgb(var(--gray-dark));
-				line-height: 1.6;
-			}
-			.social-links-hero {
-				display: flex;
-				gap: 1rem;
-				margin-top: 2rem;
-			}
-			.social-links-hero a {
-				text-decoration: none;
-				font-weight: bold;
-				border-bottom: 2px solid transparent;
-			}
-			.social-links-hero a:hover {
-				border-bottom-color: var(--accent);
+			.post-list {
+				list-style: none;
+				margin: 0;
+				padding: 40vh 0 50vh;
 			}
 
-			/* Latest Posts Section */
-			.latest-posts {
-				margin-top: 6rem;
-				border-top: 1px solid rgb(var(--gray-light));
-				padding-top: 3rem;
+			.post-item {
+				scroll-snap-align: center;
+				padding: 0.75rem 0;
 			}
-			.section-title {
+
+			.post-link {
 				display: flex;
-				justify-content: space-between;
 				align-items: baseline;
-				margin-bottom: 2rem;
-			}
-			.section-title h2 {
-				font-size: 2rem;
-				margin: 0;
-			}
-			.view-all-link {
-				font-size: 1rem;
-				font-weight: bold;
+				gap: 1.5rem;
 				text-decoration: none;
+				color: var(--color-text);
 			}
 
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
+			.post-number {
+				font-size: 2.5rem;
+				font-weight: 800;
+				flex-shrink: 0;
 			}
-			
-			.card a {
-				text-decoration: none;
-				display: block;
-				transition: transform 0.2s ease;
-			}
-			
-			.card a:hover {
-				transform: translateY(-4px);
-			}
-			
-			.card img {
-				width: 100%;
-				height: auto;
-				aspect-ratio: 16 / 9;
-				object-fit: cover;
-				border-radius: 8px;
-				box-shadow: var(--box-shadow);
-				margin-bottom: 1rem;
-			}
-			
-			.card .title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1.3;
-				font-size: 1.25rem;
-			}
-			
-			.card .date {
-				margin: 0.5rem 0 0;
-				color: rgb(var(--gray));
-				font-size: 0.85rem;
+
+			.post-title {
+				font-size: 2.5rem;
+				font-weight: 800;
+				line-height: 1.2;
 			}
 
 			@media (max-width: 720px) {
-				.hero h1 {
-					font-size: 2.5rem;
+				main {
+					padding: 0 1.5rem;
 				}
-				.grid {
-					grid-template-columns: 1fr;
+
+				.post-number,
+				.post-title {
+					font-size: 1.75rem;
 				}
 			}
 		</style>
@@ -132,48 +74,37 @@ const latestPosts = posts.slice(0, 3);
 	<body>
 		<Header />
 		<main>
-			<section class="hero">
-				<h1>Hi, I'm Juancho.</h1>
-				<p>
-					I'm an industrial engineer passionate about AI and startups. I specialize in Go-To-Market strategy, helping companies bridge the gap between product and users.
-				</p>
-				<p>
-					Currently, I'm exploring the intersection of technology and business, and writing about my journey along the way.
-				</p>
-				<div class="social-links-hero">
-					<a href="https://x.com/jmuncor" target="_blank">X</a>
-					<a href="https://github.com/jmuncor" target="_blank">GitHub</a>
-					<a href="https://linkedin.com/in/jmuncor" target="_blank">LinkedIn</a>
-				</div>
-			</section>
-
-			<section class="latest-posts">
-				<div class="section-title">
-					<h2>Latest Writing</h2>
-					<a href="/blog" class="view-all-link">View all posts &rarr;</a>
-				</div>
-				<ul class="grid">
-					{latestPosts.map((post) => (
-						<li class="card">
-							<a href={`/blog/${post.id}/`}>
-								{post.data.heroImage && (
-									<Image 
-										src={post.data.heroImage} 
-										alt=""
-										width={720}
-										height={405}
-									/>
-								)}
-								<h3 class="title">{post.data.title}</h3>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
-					))}
-				</ul>
-			</section>
+			<ul class="post-list">
+				{posts.map((post) => (
+					<li class="post-item">
+						<a href={`/blog/${post.id}/`} class="post-link">
+							<span class="post-number">{post.number}</span>
+							<span class="post-title">{post.data.title}</span>
+						</a>
+					</li>
+				))}
+			</ul>
 		</main>
 		<Footer />
+		<script>
+			const items = document.querySelectorAll('.post-item');
+			const headerHeight = 64;
+
+			function updatePosts() {
+				const viewportCenter = (window.innerHeight + headerHeight) / 2;
+				items.forEach(item => {
+					const rect = item.getBoundingClientRect();
+					const itemCenter = rect.top + rect.height / 2;
+					const distance = Math.abs(viewportCenter - itemCenter);
+					const maxDistance = window.innerHeight * 0.4;
+					const opacity = Math.max(0.15, 1 - Math.pow(distance / maxDistance, 0.7));
+					item.style.opacity = opacity.toString();
+				});
+			}
+
+			window.addEventListener('scroll', updatePosts, { passive: true });
+			window.addEventListener('resize', updatePosts);
+			updatePosts();
+		</script>
 	</body>
 </html>
