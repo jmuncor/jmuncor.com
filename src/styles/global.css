@@ -16,8 +16,8 @@
 
 /* Light mode */
 :root {
-	--color-bg: #fafafa;
-	--color-text: #1a1a1a;
+	--color-bg: #faf9f6;
+	--color-text: #141413;
 	--color-text-secondary: #666666;
 	--color-border: #e0e0e0;
 	--color-selection: rgba(0, 0, 0, 0.1);
@@ -25,8 +25,8 @@
 
 /* Dark mode */
 html.dark {
-	--color-bg: #121212;
-	--color-text: #e0e0e0;
+	--color-bg: #161615;
+	--color-text: #e8e8e6;
 	--color-text-secondary: #888888;
 	--color-border: #2e2e2e;
 	--color-selection: rgba(255, 255, 255, 0.15);
